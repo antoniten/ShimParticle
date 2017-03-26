@@ -22,6 +22,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     CardView cardView;
 
+    int idd = 1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,7 +55,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 cardView.setVisibility(View.VISIBLE);
                 startTest.setVisibility(View.GONE);
                 break;
-            for(int idd=1,idd<=idd.length, idd++){
+           while (idd<=idd.length){
                 switch (v.getId()) {
                     case R.id.PlusAnswer:
                         client.get("http://...", params, new JsonHttpResponseHandler() {
@@ -71,6 +73,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                 // super.onFailure(statusCode, headers, throwable, errorResponse);
                             }
                         });
+                        idd=idd+1;
                         break;
                     case R.id.MinusAnswer:
                         client.get("http://...", params, new JsonHttpResponseHandler() {
@@ -88,6 +91,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                 // super.onFailure(statusCode, headers, throwable, errorResponse);
                             }
                         });
+                        idd=idd+2;
                         break;
                 }
             }
